@@ -49,8 +49,7 @@ namespace AssetManagement.Base
             {
                 return NotFound();
             }
-            //put.Name = entity.Name;
-            //put.UpdateDate = DateTimeOffset.Now;
+            put = entity;
             await _repository.Put(put);
             return Ok("Successfully updated data");
         }
@@ -63,6 +62,7 @@ namespace AssetManagement.Base
             {
                 return NotFound();
             }
+            
             return delete;
         }
 

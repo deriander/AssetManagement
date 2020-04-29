@@ -12,6 +12,7 @@ namespace AssetManagement.Context
         public MyContext(DbContextOptions<MyContext> options) : base(options) { }
         public DbSet<User> User { get; set; }
         public DbSet<Request> Request { get; set; }
+        public DbSet<Item> Item { get; set; }
 
     }
 }

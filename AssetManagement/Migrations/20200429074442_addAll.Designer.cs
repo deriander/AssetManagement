@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AssetManagement.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20200429015430_addItem_NameonRequest")]
-    partial class addItem_NameonRequest
+    [Migration("20200429074442_addAll")]
+    partial class addAll
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,31 @@ namespace AssetManagement.Migrations
                 .HasAnnotation("ProductVersion", "2.1.14-servicing-32113")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("AssetManagement.Model.Item", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTimeOffset>("Create_Date");
+
+                    b.Property<DateTimeOffset?>("Delete_Date");
+
+                    b.Property<bool>("Is_Delete");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Specification");
+
+                    b.Property<bool>("Status");
+
+                    b.Property<DateTimeOffset?>("Update_Date");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TB_M_Item");
+                });
 
             modelBuilder.Entity("AssetManagement.Model.Request", b =>
                 {

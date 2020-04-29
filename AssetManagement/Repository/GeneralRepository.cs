@@ -22,8 +22,6 @@ namespace AssetManagement.Repository
 
         public async Task<TEntity> Post(TEntity entity)
         {
-            //entity.CreateDate = DateTimeOffset.Now;
-            //entity.IsDelete = false;
             await _myContext.Set<TEntity>().AddAsync(entity);
             await _myContext.SaveChangesAsync();
             return entity;
@@ -53,8 +51,7 @@ namespace AssetManagement.Repository
             {
                 return entity;
             }
-            //entity.DeleteDate = DateTimeOffset.Now;
-            //entity.IsDelete = true;
+            
             _myContext.Entry(entity).State = EntityState.Modified;
             await _myContext.SaveChangesAsync();
             return entity;
