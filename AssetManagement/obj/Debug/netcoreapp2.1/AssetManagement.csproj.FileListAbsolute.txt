@@ -12,3 +12,16 @@ C:\_GITHUB\AssetManagement\AssetManagement\obj\Debug\netcoreapp2.1\AssetManageme
 C:\_GITHUB\AssetManagement\AssetManagement\bin\Debug\netcoreapp2.1\AssetManagement.pdb
 C:\_GITHUB\AssetManagement\AssetManagement\obj\Debug\netcoreapp2.1\AssetManagement.dll
 C:\_GITHUB\AssetManagement\AssetManagement\obj\Debug\netcoreapp2.1\AssetManagement.pdb
+C:\Users\Andreas\Documents\GitHub\AssetManagement\AssetManagement\bin\Debug\netcoreapp2.1\AssetManagement.deps.json
+C:\Users\Andreas\Documents\GitHub\AssetManagement\AssetManagement\bin\Debug\netcoreapp2.1\AssetManagement.runtimeconfig.json
+C:\Users\Andreas\Documents\GitHub\AssetManagement\AssetManagement\bin\Debug\netcoreapp2.1\AssetManagement.runtimeconfig.dev.json
+C:\Users\Andreas\Documents\GitHub\AssetManagement\AssetManagement\bin\Debug\netcoreapp2.1\AssetManagement.dll
+C:\Users\Andreas\Documents\GitHub\AssetManagement\AssetManagement\bin\Debug\netcoreapp2.1\AssetManagement.pdb
+C:\Users\Andreas\Documents\GitHub\AssetManagement\AssetManagement\obj\Debug\netcoreapp2.1\AssetManagement.csproj.CoreCompileInputs.cache
+C:\Users\Andreas\Documents\GitHub\AssetManagement\AssetManagement\obj\Debug\netcoreapp2.1\AssetManagement.RazorAssemblyInfo.cache
+C:\Users\Andreas\Documents\GitHub\AssetManagement\AssetManagement\obj\Debug\netcoreapp2.1\AssetManagement.RazorAssemblyInfo.cs
+C:\Users\Andreas\Documents\GitHub\AssetManagement\AssetManagement\obj\Debug\netcoreapp2.1\AssetManagement.AssemblyInfoInputs.cache
+C:\Users\Andreas\Documents\GitHub\AssetManagement\AssetManagement\obj\Debug\netcoreapp2.1\AssetManagement.AssemblyInfo.cs
+C:\Users\Andreas\Documents\GitHub\AssetManagement\AssetManagement\obj\Debug\netcoreapp2.1\AssetManagement.RazorTargetAssemblyInfo.cache
+C:\Users\Andreas\Documents\GitHub\AssetManagement\AssetManagement\obj\Debug\netcoreapp2.1\AssetManagement.dll
+C:\Users\Andreas\Documents\GitHub\AssetManagement\AssetManagement\obj\Debug\netcoreapp2.1\AssetManagement.pdb

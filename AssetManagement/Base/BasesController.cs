@@ -18,6 +18,7 @@ namespace AssetManagement.Base
         [HttpPost]
         public async Task<ActionResult<TEntity>> Post(TEntity entity)
         {
+            entity.CreateDate = DateTimeOffset.Now;
             await _repository.Post(entity);
             return CreatedAtAction("Get", new { id = entity.Id }, entity);
 
