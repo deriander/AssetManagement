@@ -19,6 +19,31 @@ namespace AssetManagement.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("AssetManagement.Model.Item", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTimeOffset>("Create_Date");
+
+                    b.Property<DateTimeOffset?>("Delete_Date");
+
+                    b.Property<bool>("Is_Delete");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Specification");
+
+                    b.Property<bool>("Status");
+
+                    b.Property<DateTimeOffset?>("Update_Date");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TB_M_Item");
+                });
+
             modelBuilder.Entity("AssetManagement.Model.Request", b =>
                 {
                     b.Property<int>("Id")
