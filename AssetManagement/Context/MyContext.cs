@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AssetManagement.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,8 @@ namespace AssetManagement.Context
     public class MyContext : DbContext
     {
         public MyContext(DbContextOptions<MyContext> options) : base(options) { }
+        public DbSet<User> User { get; set; }
+        public DbSet<Request> Request { get; set; }
+
     }
 }

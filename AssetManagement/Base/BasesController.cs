@@ -65,5 +65,6 @@ namespace AssetManagement.Base
             }
             return delete;
         }
+
     }
 }
