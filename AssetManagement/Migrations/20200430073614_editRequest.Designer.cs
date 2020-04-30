@@ -4,14 +4,16 @@ using AssetManagement.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AssetManagement.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20200430073614_editRequest")]
+    partial class editRequest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -112,6 +114,35 @@ namespace AssetManagement.Migrations
                     b.ToTable("TB_T_Request");
                 });
 
+            modelBuilder.Entity("AssetManagement.Model.Request_Specification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Brand");
+
+                    b.Property<string>("Cpu");
+
+                    b.Property<string>("Display");
+
+                    b.Property<string>("Gpu");
+
+                    b.Property<string>("Os");
+
+                    b.Property<string>("Ram");
+
+                    b.Property<int>("Request_Id");
+
+                    b.Property<string>("Storage");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Request_Id");
+
+                    b.ToTable("TB_T_Request_Specification");
+                });
+
             modelBuilder.Entity("AssetManagement.Model.User", b =>
                 {
                     b.Property<int>("Id")
@@ -157,6 +188,14 @@ namespace AssetManagement.Migrations
                     b.HasOne("AssetManagement.Model.User", "User")
                         .WithMany()
                         .HasForeignKey("User_Id")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("AssetManagement.Model.Request_Specification", b =>
+                {
+                    b.HasOne("AssetManagement.Model.Request", "Request")
+                        .WithMany()
+                        .HasForeignKey("Request_Id")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

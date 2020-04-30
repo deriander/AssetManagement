@@ -13,6 +13,7 @@ namespace AssetManagement.Context
         public DbSet<User> User { get; set; }
         public DbSet<Request> Request { get; set; }
         public DbSet<Item> Item { get; set; }
+        public DbSet<Borrow> Borrow { get; set; }
 
     }
 }

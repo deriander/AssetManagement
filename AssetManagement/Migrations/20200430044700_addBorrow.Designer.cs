@@ -4,14 +4,16 @@ using AssetManagement.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AssetManagement.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20200430044700_addBorrow")]
+    partial class addBorrow
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,7 +35,7 @@ namespace AssetManagement.Migrations
 
                     b.Property<int>("Item_Id");
 
-                    b.Property<string>("Status_Approval");
+                    b.Property<string>("Status");
 
                     b.Property<int>("User_Id");
 
@@ -81,27 +83,11 @@ namespace AssetManagement.Migrations
 
                     b.Property<bool>("Approval_2");
 
-                    b.Property<string>("Brand");
-
-                    b.Property<string>("Cpu");
-
-                    b.Property<string>("Display");
-
-                    b.Property<string>("Gpu");
-
                     b.Property<string>("Item_Name");
-
-                    b.Property<string>("Os");
-
-                    b.Property<string>("Ram");
-
-                    b.Property<DateTimeOffset>("Request_Date");
 
                     b.Property<string>("Specification");
 
                     b.Property<string>("Status_Approval");
-
-                    b.Property<string>("Storage");
 
                     b.Property<int>("User_Id");
 
