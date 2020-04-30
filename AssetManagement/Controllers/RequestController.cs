@@ -23,6 +23,7 @@ namespace AssetManagement.Controllers
         [HttpPost("PostRequest")]
         public async Task<ActionResult<Request>> PostRequest(Request entity)
         {
+            entity.Request_Date = DateTimeOffset.Now;
             entity.Status_Approval = "-";
             await _repository.Post(entity);
             return CreatedAtAction("Get", new { id = entity.Id }, entity);
