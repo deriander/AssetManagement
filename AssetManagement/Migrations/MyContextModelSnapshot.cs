@@ -52,17 +52,27 @@ namespace AssetManagement.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Brand");
+
+                    b.Property<string>("Cpu");
+
                     b.Property<DateTimeOffset>("Create_Date");
 
                     b.Property<DateTimeOffset?>("Delete_Date");
 
+                    b.Property<string>("Display");
+
+                    b.Property<string>("Gpu");
+
                     b.Property<bool>("Is_Delete");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Os");
 
-                    b.Property<string>("Specification");
+                    b.Property<string>("Ram");
 
                     b.Property<bool>("Status");
+
+                    b.Property<string>("Storage");
 
                     b.Property<DateTimeOffset?>("Update_Date");
 
@@ -112,6 +122,31 @@ namespace AssetManagement.Migrations
                     b.ToTable("TB_T_Request");
                 });
 
+            modelBuilder.Entity("AssetManagement.Model.Return", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Condition");
+
+                    b.Property<int>("Item_Id");
+
+                    b.Property<DateTimeOffset>("Return_Date");
+
+                    b.Property<string>("Status");
+
+                    b.Property<int>("User_Id");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Item_Id");
+
+                    b.HasIndex("User_Id");
+
+                    b.ToTable("TB_T_Return");
+                });
+
             modelBuilder.Entity("AssetManagement.Model.User", b =>
                 {
                     b.Property<int>("Id")
@@ -154,6 +189,19 @@ namespace AssetManagement.Migrations
 
             modelBuilder.Entity("AssetManagement.Model.Request", b =>
                 {
+                    b.HasOne("AssetManagement.Model.User", "User")
+                        .WithMany()
+                        .HasForeignKey("User_Id")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("AssetManagement.Model.Return", b =>
+                {
+                    b.HasOne("AssetManagement.Model.Item", "Item")
+                        .WithMany()
+                        .HasForeignKey("Item_Id")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("AssetManagement.Model.User", "User")
                         .WithMany()
                         .HasForeignKey("User_Id")

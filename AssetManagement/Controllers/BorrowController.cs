@@ -15,13 +15,16 @@ namespace AssetManagement.Controllers
     {
         private readonly BorrowRepository _borrowRepository;
         private readonly ItemRepository _itemRepository;
+        private readonly ReturnRepository _returnRepository;
 
         public BorrowController(
             BorrowRepository borrowRepository,
-            ItemRepository itemRepository) : base(borrowRepository)
+            ItemRepository itemRepository,
+            ReturnRepository returnRepository) : base(borrowRepository)
         {
             this._borrowRepository = borrowRepository;
             this._itemRepository = itemRepository;
+            this._returnRepository = returnRepository;
         }
 
         [HttpPost("PostBorrow")]
@@ -89,10 +92,11 @@ namespace AssetManagement.Controllers
 
         }
 
-        // Accept request App2
+        // Accept request App2 and post data to Return table
         [HttpPut("PutApproval2/{id}")]
         public async Task<ActionResult<Borrow>> PutApproval2(int id, Borrow entity)
         {
+            // update data status_approval to 'approved'
             var put = await _borrowRepository.Get(id);
             if (put == null)
             {
@@ -102,6 +106,17 @@ namespace AssetManagement.Controllers
             put.Status_Approval = "Approved";
 
             await _borrowRepository.Put(put);
+
+            //post data to table Return
+            Return return_ = new Return
+            {
+                User_Id = put.User_Id,
+                Item_Id = put.Item_Id,
+                Status = "Not been returned"
+            };
+
+            await _returnRepository.Post(return_);
+  
             return Ok("Successfully updated Borrow data");
 
         }

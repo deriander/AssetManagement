@@ -32,10 +32,17 @@ namespace AssetManagement.Controllers
 
         }
 
-        [HttpGet("GetItem")]
-        public async Task<ActionResult<Item>> GetItem()
+        [HttpGet("GetItemAdmin")]
+        public async Task<ActionResult<Item>> GetItemAdmin()
         {
-            var get = await _repository.GetItem();
+            var get = await _repository.GetItemAdmin();
+            return Ok(new { data = get });
+        }
+
+        [HttpGet("GetItemUser")]
+        public async Task<ActionResult<Item>> GetItemUser()
+        {
+            var get = await _repository.GetItemUser();
             return Ok(new { data = get });
         }
 
@@ -47,14 +54,35 @@ namespace AssetManagement.Controllers
             {
                 return BadRequest();
             }
-            if (entity.Name != null)
+            if (entity.Brand != null)
             {
-                put.Name = entity.Name;
+                put.Brand = entity.Brand;
             }
-            if (entity.Specification != null)
+            if (entity.Cpu != null)
             {
-                put.Specification = entity.Specification;
+                put.Cpu= entity.Cpu;
             }
+            if (entity.Gpu != null)
+            {
+                put.Gpu = entity.Gpu;
+            }
+            if (entity.Ram != null)
+            {
+                put.Ram = entity.Ram;
+            }
+            if (entity.Display != null)
+            {
+                put.Display = entity.Display;
+            }
+            if (entity.Storage != null)
+            {
+                put.Storage = entity.Storage;
+            }
+            if (entity.Os != null)
+            {
+                put.Os = entity.Os;
+            }
+
             put.Update_Date = DateTimeOffset.Now;
             await _repository.Put(put);
             return Ok("Update Succesfully");
